@@ -31,6 +31,7 @@ export const addProduct = (data) => async (dispatch) => {
           type: ADD_PRODUCTS,
           payload: response.data,
         });
+        console.log(response);
       });
   } catch (error) {
     dispatch({
@@ -67,6 +68,8 @@ export const deleteProduct = (id) => async (dispatch) => {
           type: DELETE_PRODUCTS,
           payload: response.data,
         });
+        dispatch(getProducts());
+        console.log(response);
       });
   } catch (error) {
     dispatch({

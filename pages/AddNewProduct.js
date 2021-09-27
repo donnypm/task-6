@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { uid } from "uid";
 import { addProduct, editProduct } from "../redux/actions/productActions";
 import Products from "./Products";
+import { uid } from "uid";
 
 const Add_Products = () => {
   const dispatch = useDispatch();

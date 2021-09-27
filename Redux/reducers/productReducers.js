@@ -34,14 +34,14 @@ export default function productReducer(state = initialState, action) {
         loading: false,
       };
 
+    case DELETE_PRODUCTS:
+      return { ...state, loading: false };
+
     case PRODUCTS_ERROR:
       return {
         loading: false,
         error: action.payload,
       };
-
-    case DELETE_PRODUCTS:
-      return { ...state, loading: false };
 
     default:
       return state;

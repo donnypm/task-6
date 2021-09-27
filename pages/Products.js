@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts, deleteProduct } from "../redux/actions/productActions";
 import Image from "next/image";
@@ -6,6 +6,7 @@ import Image from "next/image";
 const Products = (props) => {
   const { handleEdit } = props;
   const dispatch = useDispatch();
+  let history = useHistory();
   const allProductsData = useSelector((state) => state.Products);
   const { loading, error, products } = allProductsData;
 
