@@ -22,50 +22,56 @@ export const getProducts = () => async (dispatch) => {
   }
 };
 
-export const addProduct = (productObj) => {
-  return (dispatch) => {
-    axios
-      .post("https://fakestoreapi.com/products", productObj)
+export const addProduct = (data) => async (dispatch) => {
+  try {
+    await axios
+      .post(`https://fakestoreapi.com/products`, data)
       .then((response) => {
         dispatch({
           type: ADD_PRODUCTS,
           payload: response.data,
         });
-      })
-      .catch((error) => {
-        console.log(error);
       });
-  };
+  } catch (error) {
+    dispatch({
+      type: PRODUCTS_ERROR,
+      payload: error,
+    });
+  }
 };
 
-export const editProduct = (productObj, id) => {
-  return (dispatch) => {
-    axios
-      .put("https://fakestoreapi.com/products/" + id, productObj)
+export const editProduct = (id, data) => async (dispatch) => {
+  try {
+    await axios
+      .put(`https://fakestoreapi.com/products/${id}`, data)
       .then((response) => {
         dispatch({
           type: EDIT_PRODUCTS,
           payload: response.data,
         });
-      })
-      .catch((error) => {
-        console.log(error);
       });
-  };
+  } catch (error) {
+    dispatch({
+      type: PRODUCTS_ERROR,
+      payload: error,
+    });
+  }
 };
 
-export const deleteProduct = (id) => {
-  return (dispatch) => {
-    axios
-      .delete("https://fakestoreapi.com/products/" + id)
+export const deleteProduct = (id) => async (dispatch) => {
+  try {
+    await axios
+      .delete(`https://fakestoreapi.com/products/${id}`)
       .then((response) => {
         dispatch({
           type: DELETE_PRODUCTS,
           payload: response.data,
         });
-      })
-      .catch((error) => {
-        console.log(error);
       });
-  };
+  } catch (error) {
+    dispatch({
+      type: PRODUCTS_ERROR,
+      payload: error,
+    });
+  }
 };

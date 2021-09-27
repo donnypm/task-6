@@ -5,7 +5,6 @@ import {
   GET_PRODUCTS,
   PRODUCTS_ERROR,
 } from "../reducers/types";
-import { uid } from "uid";
 
 const initialState = {
   products: [],
@@ -29,8 +28,11 @@ export default function productReducer(state = initialState, action) {
       };
 
     case EDIT_PRODUCTS:
-      const editproducts = state.products.concat(action.payload);
-      return { ...state, editproducts };
+      return {
+        ...state,
+        products: state.products.concat(action.payload),
+        loading: false,
+      };
 
     case PRODUCTS_ERROR:
       return {
@@ -39,11 +41,8 @@ export default function productReducer(state = initialState, action) {
       };
 
     case DELETE_PRODUCTS:
-      return {
-        ...state,
-        products: action.payload,
-        loading: false,
-      };
+      return { ...state, loading: false };
+
     default:
       return state;
   }

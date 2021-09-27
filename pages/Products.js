@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts, deleteProduct } from "../redux/actions/productActions";
 import Image from "next/image";
-import swal from "sweetalert";
 
 const Products = (props) => {
   const { handleEdit } = props;
@@ -12,7 +11,12 @@ const Products = (props) => {
 
   useEffect(() => {
     dispatch(getProducts());
-  }, [dispatch]);
+  }, []);
+
+  const handleDelete = (id) => {
+    dispatch(deleteProduct(id));
+    alert("Berhasil menghapus");
+  };
 
   return (
     <section className="product">
@@ -25,7 +29,7 @@ const Products = (props) => {
               <div className="card-image">
                 <Image
                   src={product.image}
-                  alt={product.title}
+                  alt={product.image}
                   width={200}
                   height={250}
                 />
@@ -37,7 +41,7 @@ const Products = (props) => {
               </div>
               <div>
                 <button onClick={() => handleEdit(product)}>Edit</button>
-                <button>Delete</button>
+                <button onClick={() => handleDelete(product.id)}>Delete</button>
               </div>
             </div>
           ))}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { uid } from "uid";
 import { addProduct, editProduct } from "../redux/actions/productActions";
 import Products from "./Products";
 
@@ -49,6 +50,7 @@ const Add_Products = () => {
     } else {
       dispatch(
         addProduct({
+          id: uid(),
           title: userInput.title,
           price: userInput.price,
           description: userInput.description,
@@ -155,7 +157,7 @@ const Add_Products = () => {
             </div>
 
             <button className="bn54" type="button" onClick={handleSubmit}>
-              <span className="bn54span">Add New Product</span>
+              <span className="bn54span">Submit</span>
             </button>
           </form>
         </div>
