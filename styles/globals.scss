@@ -259,3 +259,8 @@ CORE STYLES
   display: grid;
   grid-gap: 10px;
 }
+
+.button {
+  display: flex;
+  justify-content: space-between;
+}

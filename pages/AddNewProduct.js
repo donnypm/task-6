@@ -155,9 +155,11 @@ const Add_Products = () => {
               </label>
             </div>
 
-            <button className="bn54" type="button" onClick={handleSubmit}>
-              <span className="bn54span">Submit</span>
-            </button>
+            <div className="button">
+              <button className="bn54" type="button" onClick={handleSubmit}>
+                <span className="bn54span">Submit</span>
+              </button>
+            </div>
           </form>
         </div>
         <Products handleEdit={handleEdit} />
