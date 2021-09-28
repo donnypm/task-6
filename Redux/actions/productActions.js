@@ -14,6 +14,7 @@ export const getProducts = () => async (dispatch) => {
       type: GET_PRODUCTS,
       payload: res.data,
     });
+    console.log(res);
   } catch (error) {
     dispatch({
       type: PRODUCTS_ERROR,
@@ -68,7 +69,6 @@ export const deleteProduct = (id) => async (dispatch) => {
           type: DELETE_PRODUCTS,
           payload: response.data,
         });
-        dispatch(getProducts());
         console.log(response);
       });
   } catch (error) {

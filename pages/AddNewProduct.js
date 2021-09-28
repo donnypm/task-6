@@ -50,7 +50,6 @@ const Add_Products = () => {
     } else {
       dispatch(
         addProduct({
-          id: uid(),
           title: userInput.title,
           price: userInput.price,
           description: userInput.description,

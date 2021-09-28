@@ -6,7 +6,6 @@ import Image from "next/image";
 const Products = (props) => {
   const { handleEdit } = props;
   const dispatch = useDispatch();
-  let history = useHistory();
   const allProductsData = useSelector((state) => state.Products);
   const { loading, error, products } = allProductsData;
 

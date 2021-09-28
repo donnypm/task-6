@@ -35,7 +35,10 @@ export default function productReducer(state = initialState, action) {
       };
 
     case DELETE_PRODUCTS:
-      return { ...state, loading: false };
+      const filteredState = state.products.filter(
+        (product) => product.id !== action.payload.id
+      );
+      return { ...state, products: filteredState };
 
     case PRODUCTS_ERROR:
       return {
