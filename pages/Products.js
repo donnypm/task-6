@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getProducts,
-  deleteProduct,
-  sortProducts,
-} from "../redux/actions/productActions";
+import { getProducts, deleteProduct } from "../redux/actions/productActions";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPen } from "@fortawesome/free-solid-svg-icons";
@@ -18,11 +14,6 @@ const Products = (props) => {
   useEffect(() => {
     dispatch(getProducts());
   }, []);
-
-  const handleDelete = (id) => {
-    dispatch(deleteProduct(id));
-    alert("Berhasil menghapus");
-  };
 
   return (
     <section>
@@ -45,7 +36,12 @@ const Products = (props) => {
                     />
                   </button>
                   <button
-                    onClick={() => handleDelete(product.id)}
+                    onClick={() =>
+                      dispatch(
+                        deleteProduct(product.id),
+                        alert("Anda Menghapus " + product.title)
+                      )
+                    }
                     className="button-ud"
                   >
                     <FontAwesomeIcon
