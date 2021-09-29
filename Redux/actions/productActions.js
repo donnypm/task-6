@@ -14,7 +14,7 @@ export const getProducts = () => async (dispatch) => {
       type: GET_PRODUCTS,
       payload: res.data,
     });
-    console.log(res);
+    console.log(res.data);
   } catch (error) {
     dispatch({
       type: PRODUCTS_ERROR,
@@ -51,6 +51,7 @@ export const editProduct = (id, data) => async (dispatch) => {
           type: EDIT_PRODUCTS,
           payload: response.data,
         });
+        console.log(response);
       });
   } catch (error) {
     dispatch({

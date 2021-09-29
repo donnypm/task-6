@@ -28,11 +28,14 @@ export default function productReducer(state = initialState, action) {
       };
 
     case EDIT_PRODUCTS:
-      return {
-        ...state,
-        products: state.products.concat(action.payload),
-        loading: false,
-      };
+      const index = state.products.findIndex(
+        (product) => product.id === action.payload.id
+      );
+      state[index].title = action.payload.title;
+      state[index].price = action.payload.price;
+      state[index].description = action.payload.description;
+      state[index].image = action.payload.image;
+      state[index].category = action.payload.category;
 
     case DELETE_PRODUCTS:
       const filteredState = state.products.filter(

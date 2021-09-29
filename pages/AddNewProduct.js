@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addProduct, editProduct } from "../redux/actions/productActions";
 import Products from "./Products";
-import { uid } from "uid";
 
 const Add_Products = () => {
   const dispatch = useDispatch();
@@ -79,6 +78,7 @@ const Add_Products = () => {
       category: product.category,
     });
     setIsUpdate({ id: product.id, status: true });
+    console.log(product.id);
   };
 
   return (

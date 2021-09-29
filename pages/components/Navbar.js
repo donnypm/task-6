@@ -9,7 +9,7 @@ const Navbar = () => {
             Home
           </a>
         </li>
-        <li className={styles.li}>
+        {/* } <li className={styles.li}>
           <a href="/Admin/Login" className={styles.a}>
             Login
           </a>
@@ -18,7 +18,7 @@ const Navbar = () => {
           <a href="/Admin/Register" className={styles.a}>
             Register
           </a>
-        </li>
+  </li>*/}
       </ul>
     </nav>
   );

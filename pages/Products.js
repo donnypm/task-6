@@ -30,17 +30,17 @@ const Products = (props) => {
           : error
           ? error.message
           : products.map((product) => (
-              <div className="card">
+              <div className="card" key={product.id}>
                 <div className="card-image">
                   <Image
                     src={product.image}
-                    alt={product.image}
+                    alt="A image of product"
                     width={200}
                     height={250}
                   />
                 </div>
                 <div className="text">
-                  <h3 key={product.id}>{product.title}</h3>
+                  <h3>{product.title}</h3>
                   <h4>$ {product.price}</h4>
                   <h4>{product.category}</h4>
                 </div>
