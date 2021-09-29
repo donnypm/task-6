@@ -29,7 +29,7 @@ a {
 .card {
   flex: 0 0 310px;
   margin: 10px;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
 }
 
@@ -39,6 +39,10 @@ a {
 
 .card-image {
   text-align: center;
+}
+
+.card-content {
+  margin: 10px;
 }
 
 .bn54 {
@@ -263,4 +267,13 @@ CORE STYLES
 .button {
   display: flex;
   justify-content: space-between;
+}
+
+.button-ud {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  float: right;
 }

@@ -23,10 +23,10 @@ export const getProducts = () => async (dispatch) => {
   }
 };
 
-export const addProduct = (data) => async (dispatch) => {
+export const addProduct = (product) => async (dispatch) => {
   try {
     await axios
-      .post(`https://fakestoreapi.com/products`, data)
+      .post(`https://fakestoreapi.com/products`, product)
       .then((response) => {
         dispatch({
           type: ADD_PRODUCTS,
@@ -42,10 +42,10 @@ export const addProduct = (data) => async (dispatch) => {
   }
 };
 
-export const editProduct = (id, data) => async (dispatch) => {
+export const editProduct = (product) => async (dispatch) => {
   try {
     await axios
-      .put(`https://fakestoreapi.com/products/${id}`, data)
+      .put(`https://fakestoreapi.com/products/${product.id}`, product)
       .then((response) => {
         dispatch({
           type: EDIT_PRODUCTS,
