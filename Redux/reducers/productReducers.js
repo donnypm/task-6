@@ -4,24 +4,18 @@ import {
   DELETE_PRODUCTS,
   GET_PRODUCTS,
   PRODUCTS_ERROR,
-  SORT_PRODUCTS,
+  GET_SINGLE_PRODUCTS,
 } from "../reducers/types";
 
 const initialState = {
   products: [],
+  product: {},
   loading: true,
 };
 
 export default function productReducer(state = initialState, action) {
   switch (action.type) {
     case GET_PRODUCTS:
-      return {
-        ...state,
-        products: action.payload,
-        loading: false,
-      };
-
-    case SORT_PRODUCTS:
       return {
         ...state,
         products: action.payload,
@@ -39,7 +33,7 @@ export default function productReducer(state = initialState, action) {
       return {
         ...state,
         products: state.products.map((product) =>
-          product.id === action.payload.id
+          Number(product.id) === Number(action.payload.id)
             ? (product = action.payload)
             : product
         ),

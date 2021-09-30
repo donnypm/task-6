@@ -162,7 +162,6 @@ const Add_Products = () => {
             </div>
           </form>
         </div>
-        <Products handleEdit={handleEdit} />
       </section>
     </section>
   );

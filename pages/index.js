@@ -2,8 +2,9 @@ import Head from "next/head";
 import Navbar from "./components/Navbar";
 import styles from "../styles/Home.module.scss";
 import AddNewproducts from "./AddNewProduct";
+import Products from "./Products";
 
-export default function Home() {
+export default function Home(handleEdit) {
   return (
     <div className={styles.content}>
       <Head>
@@ -21,7 +22,7 @@ export default function Home() {
         </button>
       </a>*/}
 
-      <AddNewproducts />
+      <Products handleEdit={handleEdit} />
     </div>
   );
 }
