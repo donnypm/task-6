@@ -4,6 +4,7 @@ import {
   getProducts,
   deleteProduct,
   editProduct,
+  addProduct,
 } from "../redux/actions/productActions";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,7 +14,6 @@ import {
   faWindowClose,
 } from "@fortawesome/free-solid-svg-icons";
 import Modal from "react-modal";
-import AddNewProduct from "./AddNewProduct";
 
 Modal.setAppElement();
 
@@ -129,81 +129,71 @@ const Products = () => {
           >
             <FontAwesomeIcon
               icon={faWindowClose}
-              size="3x"
+              size="2x"
               style={{ color: "red" }}
             />
           </button>
           <section className="content-product">
             <section className="add-product">
-              <h1>Input New Product</h1>
+              <h1> New Product and Update Product</h1>
               <div className="form-container">
                 <form id="form" className="form">
                   <div className="page">
-                    <label className="field field_v3">
+                    <div class="form__group field">
                       <input
+                        type="input"
+                        class="form__field"
+                        placeholder="Title"
                         name="title"
-                        className="field__input"
-                        placeholder="Title.."
                         onChange={handleChange}
                         value={userInput.title}
                       />
-                      <span className="field__label-wrap">
-                        <span className="field__label">Title</span>
-                      </span>
-                    </label>
-
-                    <label className="field field_v3">
+                      <label class="form__label">Title</label>
+                    </div>
+                    <div class="form__group field">
                       <input
+                        type="input"
+                        class="form__field"
+                        placeholder="Price"
                         name="price"
-                        className="field__input"
-                        placeholder="Price..."
                         onChange={handleChange}
                         value={userInput.price}
                       />
-                      <span className="field__label-wrap">
-                        <span className="field__label">Price</span>
-                      </span>
-                    </label>
-
-                    <label className="field field_v3">
-                      <textarea
-                        className="text-area"
+                      <label class="form__label">Price</label>
+                    </div>
+                    <div class="form__group field">
+                      <input
+                        type="input"
+                        class="form__field"
+                        placeholder="Description"
                         name="description"
-                        className="field__input"
-                        placeholder="Description..."
                         onChange={handleChange}
                         value={userInput.description}
                       />
-                      <span className="field__label-wrap">
-                        <span className="field__label">Description</span>
-                      </span>
-                    </label>
-
-                    <label className="field field_v3">
+                      <label class="form__label">Description</label>
+                    </div>
+                    <div class="form__group field">
                       <input
+                        type="input"
+                        class="form__field"
+                        placeholder="Image"
                         name="image"
-                        className="field__input"
-                        placeholder="Image..."
                         onChange={handleChange}
                         value={userInput.image}
                       />
-                      <span className="field__label-wrap">
-                        <span className="field__label">Image</span>
-                      </span>
-                    </label>
-
-                    <label className="field field_v3">
+                      <label class="form__label">Image</label>
+                    </div>
+                    <div class="form__group field">
                       <input
+                        type="input"
+                        class="form__field"
+                        placeholder="Category"
                         name="category"
-                        className="field__input"
-                        placeholder="Category..."
                         onChange={handleChange}
                         value={userInput.category}
                       />
-                      <span className="field__label-wrap">
-                        <span className="field__label">Category</span>
-                      </span>
-                    </label>
+                      <label class="form__label">Category</label>
+                    </div>
                   </div>
 
                   <div className="button">
