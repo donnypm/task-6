@@ -4,6 +4,7 @@ import {
   DELETE_PRODUCTS,
   GET_PRODUCTS,
   PRODUCTS_ERROR,
+  SORT_PRODUCTS,
 } from "../reducers/types";
 
 const initialState = {
@@ -14,6 +15,13 @@ const initialState = {
 export default function productReducer(state = initialState, action) {
   switch (action.type) {
     case GET_PRODUCTS:
+      return {
+        ...state,
+        products: action.payload,
+        loading: false,
+      };
+
+    case SORT_PRODUCTS:
       return {
         ...state,
         products: action.payload,

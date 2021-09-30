@@ -45,7 +45,7 @@ const Add_Products = () => {
           category: userInput.category,
         })
       );
-      alert("Berhasil EDIT Product");
+      alert("Berhasil EDIT Product " + userInput.title);
     } else {
       dispatch(
         addProduct({

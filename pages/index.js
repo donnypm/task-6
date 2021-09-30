@@ -20,6 +20,7 @@ export default function Home() {
           <span class="bn54span">Add New Product</span>
         </button>
       </a>*/}
+
       <AddNewproducts />
     </div>
   );

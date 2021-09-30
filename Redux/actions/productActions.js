@@ -4,6 +4,7 @@ import {
   DELETE_PRODUCTS,
   GET_PRODUCTS,
   PRODUCTS_ERROR,
+  SORT_PRODUCTS,
 } from "../reducers/types";
 import axios from "axios";
 
@@ -12,6 +13,22 @@ export const getProducts = () => async (dispatch) => {
     const res = await axios.get(`https://fakestoreapi.com/products`);
     dispatch({
       type: GET_PRODUCTS,
+      payload: res.data,
+    });
+    console.log(res.data);
+  } catch (error) {
+    dispatch({
+      type: PRODUCTS_ERROR,
+      payload: error,
+    });
+  }
+};
+
+export const sortProducts = () => async (dispatch) => {
+  try {
+    const res = await axios.get(`https://fakestoreapi.com/products?sort=desc`);
+    dispatch({
+      type: SORT_PRODUCTS,
       payload: res.data,
     });
     console.log(res.data);
