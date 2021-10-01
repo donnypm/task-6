@@ -12,7 +12,6 @@ import {
   faTrash,
   faPen,
   faWindowClose,
-  faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 import Modal from "react-modal";
 
