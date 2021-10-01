@@ -229,7 +229,7 @@ const Products = () => {
             <input
               name={inputSearch}
               type="text"
-              placeholder="Search Title Here..."
+              placeholder="Search Product Here..."
               onChange={handleChangeSearch}
               value={inputSearch}
               className="input-search"
