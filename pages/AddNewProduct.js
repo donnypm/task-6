@@ -84,75 +84,65 @@ const Add_Products = () => {
   return (
     <section className="content-product">
       <section className="add-product">
-        <h1>Input New Product</h1>
+        <h1> New Product or Update Product</h1>
         <div className="form-container">
           <form id="form" className="form">
             <div className="page">
-              <label className="field field_v3">
+              <div className="form__group field">
                 <input
+                  type="input"
+                  className="form__field"
+                  placeholder="Title"
                   name="title"
-                  className="field__input"
-                  placeholder="Title.."
                   onChange={handleChange}
                   value={userInput.title}
                 />
-                <span className="field__label-wrap">
-                  <span className="field__label">Title</span>
-                </span>
-              </label>
-
-              <label className="field field_v3">
+                <label className="form__label">Title</label>
+              </div>
+              <div className="form__group field">
                 <input
+                  type="input"
+                  className="form__field"
+                  placeholder="Price"
                   name="price"
-                  className="field__input"
-                  placeholder="Price..."
                   onChange={handleChange}
                   value={userInput.price}
                 />
-                <span className="field__label-wrap">
-                  <span className="field__label">Price</span>
-                </span>
-              </label>
-
-              <label className="field field_v3">
-                <textarea
-                  className="text-area"
+                <label className="form__label">Price</label>
+              </div>
+              <div className="form__group field">
+                <input
+                  type="input"
+                  className="form__field"
+                  placeholder="Description"
                   name="description"
-                  className="field__input"
-                  placeholder="Description..."
                   onChange={handleChange}
                   value={userInput.description}
                 />
-                <span className="field__label-wrap">
-                  <span className="field__label">Description</span>
-                </span>
-              </label>
-
-              <label className="field field_v3">
+                <label className="form__label">Description</label>
+              </div>
+              <div className="form__group field">
                 <input
+                  type="input"
+                  className="form__field"
+                  placeholder="Image"
                   name="image"
-                  className="field__input"
-                  placeholder="Image..."
                   onChange={handleChange}
                   value={userInput.image}
                 />
-                <span className="field__label-wrap">
-                  <span className="field__label">Image</span>
-                </span>
-              </label>
-
-              <label className="field field_v3">
+                <label className="form__label">Image</label>
+              </div>
+              <div className="form__group field">
                 <input
+                  type="input"
+                  className="form__field"
+                  placeholder="Category"
                   name="category"
-                  className="field__input"
-                  placeholder="Category..."
                   onChange={handleChange}
                   value={userInput.category}
                 />
-                <span className="field__label-wrap">
-                  <span className="field__label">Category</span>
-                </span>
-              </label>
+                <label className="form__label">Category</label>
+              </div>
             </div>
 
             <div className="button">

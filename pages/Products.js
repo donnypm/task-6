@@ -12,26 +12,31 @@ import {
   faTrash,
   faPen,
   faWindowClose,
+  faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import Modal from "react-modal";
+import ProductDetail from "react-modal";
 
-Modal.setAppElement();
+(Modal, ProductDetail).setAppElement();
 
 const Products = () => {
   const dispatch = useDispatch();
   const allProductsData = useSelector((state) => state.Products);
   const { loading, error, products } = allProductsData;
 
+  // MODAL
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [descModalIsOpen, setdescModalIsOpen] = useState(false);
 
+  // LOAD DATA
   useEffect(() => {
     dispatch(getProducts());
   }, []);
 
-  //SEARCH TITLE
+  // SEARCH TITLE
   const [inputSearch, setInputSearch] = useState("");
 
-  // UNTUK ADD DATA
+  // ADD DATA
   const [isUpdate, setIsUpdate] = useState({ id: null, status: false });
   const [userInput, setUserInput] = useState({
     title: "",
@@ -100,6 +105,7 @@ const Products = () => {
     setIsUpdate({ id: null, status: false });
   };
 
+  // HANDLE EDIT
   const handleEdit = (product) => {
     setUserInput({
       title: product.title,
@@ -114,6 +120,56 @@ const Products = () => {
 
   return (
     <section>
+      <ProductDetail
+        isOpen={descModalIsOpen}
+        ariaHideApp={false}
+        style={{
+          content: {
+            top: "40px",
+            left: "140px",
+            right: "140px",
+            bottom: "40px",
+          },
+        }}
+      >
+        <button
+          onClick={() => setdescModalIsOpen(false)}
+          style={{ float: "right" }}
+          className="button-ud"
+        >
+          <FontAwesomeIcon
+            icon={faWindowClose}
+            size="2x"
+            style={{ color: "red" }}
+          />
+        </button>
+        <section className="product-detail">
+          <div className="left-column">
+            <Image
+              src={userInput.image}
+              alt="A image of product"
+              width={400}
+              height={450}
+            />
+          </div>
+
+          <div className="right-column">
+            <div className="product-description">
+              <span>{userInput.category}</span>
+              <h1>{userInput.title}</h1>
+              <p>{userInput.description}</p>
+            </div>
+
+            <div className="product-price">
+              <span>$ {userInput.price}</span>
+              <a href="#" className="cart-btn">
+                Add to cart
+              </a>
+            </div>
+          </div>
+        </section>
+      </ProductDetail>
+
       <div className="Header">
         <div className="Modal">
           <button onClick={() => setModalIsOpen(true)} className="bn54">
@@ -132,7 +188,16 @@ const Products = () => {
             }}
           >
             <button
-              onClick={() => setModalIsOpen(false)}
+              onClick={() =>
+                setModalIsOpen(false) &
+                setUserInput({
+                  title: "",
+                  price: "",
+                  description: "",
+                  image: "",
+                  category: "",
+                })
+              }
               style={{ float: "right" }}
               className="button-ud"
             >
@@ -144,7 +209,7 @@ const Products = () => {
             </button>
             <section className="content-product">
               <section className="add-product">
-                <h1> New Product and Update Product</h1>
+                <h1> New Product or Update Product</h1>
                 <div className="form-container">
                   <form id="form" className="form">
                     <div className="page">
@@ -250,7 +315,7 @@ const Products = () => {
                   } else if (
                     product.title
                       .toLowerCase()
-                      .includes(inputSearch.toLocaleLowerCase())
+                      .includes(inputSearch.toLowerCase())
                   ) {
                     return product;
                   }
@@ -258,6 +323,7 @@ const Products = () => {
                 .map((product) => (
                   <div className="card" key={product.id}>
                     <div className="card-content">
+                      {/* EDIT PRODUCT */}
                       <button
                         onClick={() =>
                           setModalIsOpen(true) & handleEdit(product)
@@ -270,6 +336,8 @@ const Products = () => {
                           style={{ color: "blue" }}
                         />
                       </button>
+
+                      {/* DELETE PRODUCT */}
                       <button
                         onClick={() =>
                           dispatch(
@@ -285,19 +353,27 @@ const Products = () => {
                           style={{ color: "red" }}
                         />
                       </button>
-                      <h3>{product.title}</h3>
-                      <div className="card-image">
-                        <Image
-                          src={product.image}
-                          alt="A image of product"
-                          width={200}
-                          height={250}
-                        />
-                      </div>
-                      <div className="text">
-                        <h4>$ {product.price}</h4>
-                        <h4>{product.category}</h4>
-                      </div>
+
+                      {/* LIST PRODUCT */}
+                      <a
+                        onClick={() =>
+                          setdescModalIsOpen(true) & handleEdit(product)
+                        }
+                      >
+                        <h3>{product.title}</h3>
+                        <div className="card-image">
+                          <Image
+                            src={product.image}
+                            alt="A image of product"
+                            width={200}
+                            height={250}
+                          />
+                        </div>
+                        <div className="text">
+                          <h4>$ {product.price}</h4>
+                          <h4>{product.category}</h4>
+                        </div>
+                      </a>
                     </div>
                   </div>
                 ))}

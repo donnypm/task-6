@@ -4,7 +4,6 @@ import {
   DELETE_PRODUCTS,
   GET_PRODUCTS,
   PRODUCTS_ERROR,
-  GET_SINGLE_PRODUCTS,
 } from "../reducers/types";
 import axios from "axios";
 
