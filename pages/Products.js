@@ -156,8 +156,8 @@ const Products = () => {
           <div className="right-column">
             <div className="product-description">
               <span>{userInput.category}</span>
-              <h1>{userInput.title}</h1>
-              <p>{userInput.description}</p>
+              <h1 style={{ textAlign: "justify" }}>{userInput.title}</h1>
+              <p style={{ textAlign: "justify" }}>{userInput.description}</p>
             </div>
 
             <div className="product-price">
@@ -188,16 +188,7 @@ const Products = () => {
             }}
           >
             <button
-              onClick={() =>
-                setModalIsOpen(false) &
-                setUserInput({
-                  title: "",
-                  price: "",
-                  description: "",
-                  image: "",
-                  category: "",
-                })
-              }
+              onClick={() => setModalIsOpen(false)}
               style={{ float: "right" }}
               className="button-ud"
             >
