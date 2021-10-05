@@ -37,23 +37,6 @@ const Products = () => {
   // SEARCH TITLE
   const [inputSearch, setInputSearch] = useState("");
 
-  // ADD DATA
-  const [userInput, setUserInput] = useState({
-    title: "",
-    price: "",
-    description: "",
-    image: "",
-    category: "",
-  });
-
-  const [userEdit, setUserEdit] = useState({
-    title: "",
-    price: "",
-    description: "",
-    image: "",
-    category: "",
-  });
-
   // HANDLE CHANGE
   const handleChange = (e) => {
     let data = { ...userInput };
@@ -73,6 +56,14 @@ const Products = () => {
   };
 
   // ADD PRODUCT
+  const [userInput, setUserInput] = useState({
+    title: "",
+    price: "",
+    description: "",
+    image: "",
+    category: "",
+  });
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -107,6 +98,14 @@ const Products = () => {
   };
 
   // EDIT AND UPDATE PRODUCT
+  const [userEdit, setUserEdit] = useState({
+    title: "",
+    price: "",
+    description: "",
+    image: "",
+    category: "",
+  });
+
   const handleEdit = (product) => {
     setUserEdit({
       id: product.id,
@@ -223,7 +222,7 @@ const Products = () => {
         <div>
           <section className="content-product">
             <section className="add-product">
-              <h1> Edit </h1>
+              <h1> Edit Product</h1>
               <div className="form-container">
                 <form id="form" className="form">
                   <div className="page">
