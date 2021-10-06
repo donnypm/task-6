@@ -16,6 +16,7 @@ import {
 import Modal from "react-modal";
 import ProductDetail from "react-modal";
 import EditProduct from "react-modal";
+import Swal from "sweetalert2";
 
 (Modal, ProductDetail, EditProduct).setAppElement();
 
@@ -86,7 +87,11 @@ const Products = () => {
         category: userInput.category,
       })
     );
-    alert("Berhasil Tambah Product");
+    Swal.fire(
+      "Berhasil Tambah Produk!",
+      "Product " + userInput.title + " Berhasil di Tambah!",
+      "success"
+    );
 
     setUserInput({
       title: "",
@@ -131,7 +136,11 @@ const Products = () => {
         category: userEdit.category,
       })
     );
-    alert("Berhasil Update Product " + userInput.title);
+    Swal.fire(
+      "Berhasil Update Produk!",
+      "Product " + userEdit.title + " Berhasil di Update!",
+      "success"
+    );
 
     setUserEdit({
       title: "",
@@ -476,7 +485,13 @@ const Products = () => {
                         onClick={() =>
                           dispatch(
                             deleteProduct(product.id),
-                            alert("Anda Menghapus " + product.title)
+                            Swal.fire(
+                              "Berhasil Menghapus!",
+                              "Product " +
+                                product.title +
+                                " Berhasil di Hapus!",
+                              "success"
+                            )
                           )
                         }
                         className="button-ud"

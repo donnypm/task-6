@@ -22,7 +22,7 @@ export default function Home(handleEdit) {
         </button>
       </a>*/}
 
-      <Products handleEdit={handleEdit} />
+      <Products />
     </div>
   );
 }
